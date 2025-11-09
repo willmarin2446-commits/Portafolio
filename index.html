@@ -90,6 +90,17 @@
             box-shadow: var(--shadow);
         }
 
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
         /* Navegación */
         header {
             background-color: white;
@@ -735,7 +746,9 @@
                 <p>Ingeniero Industrial | Especialista en Automatización | Instructor de Robótica y Mecatrónica</p>
                 <div class="hero-btns">
                     <a href="#proyectos" class="btn">Ver Proyectos</a>
-                    <a href="#contacto" class="btn">Contactar</a>
+                    <a href="doc/curriculo.pdf" class="btn" download="Curriculo_Williams_Marin.pdf">
+                        <i class="fas fa-download"></i> Descargar CV
+                    </a>
                 </div>
             </div>
         </div>
@@ -747,7 +760,7 @@
             <h2 class="section-title">Sobre Mí</h2>
             <div class="about-content">
                 <div class="about-img">
-                    <img src="https://via.placeholder.com/400x500" alt="Williams Marín">
+                    <img src="imagenes/foto.jpg" alt="Williams Marín">
                 </div>
                 <div class="about-text">
                     <h3>Ingeniero Industrial con formación en física aplicada y automatización</h3>
@@ -755,7 +768,12 @@
                     <p>Actualmente me desempeño como <strong>Instructor de Automatización y Robótica en el CIEM-FUNMEPRO</strong>, donde guío proyectos de automatización con Arduino y ESP32, capacitando a estudiantes en programación de hardware.</p>
                     <p>Además, he participado activamente en el <strong>diseño, programación y simulación de diferentes proyectos</strong> para estudiantes de Ingeniería Industrial e Ingeniería Electrónica, contribuyendo a su formación práctica.</p>
                     <p>Actualmente cursando Maestría en Administración de Negocios y Diplomado en Automatización Industrial.</p>
-                    <a href="#" class="btn" style="margin-top: 20px;">Descargar CV</a>
+                    <div style="display: flex; gap: 15px; margin-top: 25px;">
+                        <a href="doc/curriculo.pdf" class="btn" download="Curriculo_Williams_Marin.pdf">
+                            <i class="fas fa-download"></i> Descargar CV
+                        </a>
+                        <a href="#contacto" class="btn btn-outline">Contactar</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1042,6 +1060,17 @@
                             <p>Williams Marín</p>
                         </div>
                     </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div>
+                            <h3>Currículum</h3>
+                            <a href="doc/curriculo.pdf" download="Curriculo_Williams_Marin.pdf" style="color: var(--text-color); text-decoration: underline;">
+                                Descargar CV en PDF
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
@@ -1071,6 +1100,9 @@
                 <div class="footer-about">
                     <div class="footer-logo">Williams<span>Marín</span></div>
                     <p>Ingeniero Industrial especializado en automatización, control de procesos y programación de hardware.</p>
+                    <a href="doc/curriculo.pdf" class="btn btn-outline" download="Curriculo_Williams_Marin.pdf" style="margin-top: 15px; color: white; border-color: white;">
+                        <i class="fas fa-download"></i> Descargar CV
+                    </a>
                 </div>
                 <div class="footer-links">
                     <h3>Enlaces Rápidos</h3>
