@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Williams Marín - Ingeniero Industrial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables CSS */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --dark-bg: #2c3e50;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset y estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 15px auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Navegación */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-item {
+            margin-left: 30px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .hero-btns .btn {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+
+        .hero-btns .btn:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* Sobre Mí */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        /* Experiencia */
+        .experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background-color: var(--secondary-color);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 50%;
+            padding-right: 30px;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-right: 0;
+            padding-left: 30px;
+        }
+
+        .timeline-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 10px solid white;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            right: auto;
+            left: -10px;
+            border-left: none;
+            border-right: 10px solid white;
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        /* Habilidades */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: var(--secondary-color);
+            border-radius: 4px;
+            transition: width 1s ease-in-out;
+        }
+
+        /* Formación */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .education-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .education-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .education-institution {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .education-period {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        /* Cursos y Diplomas */
+        .courses-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .course-institution {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .course-year {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        /* Proyectos */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-img i {
+            font-size: 4rem;
+            color: var(--secondary-color);
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .project-tag {
+            background-color: var(--light-bg);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Contacto */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span {
+            color: var(--secondary-color);
+        }
+
+        .footer-links h3,
+        .footer-social h3 {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-links h3::after,
+        .footer-social h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                background-color: white;
+                width: 80%;
+                height: calc(100vh - 70px);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-item {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .experience-timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+                padding-left: 70px;
+            }
+
+            .timeline-content::after {
+                right: auto;
+                left: -10px;
+                border-left: none;
+                border-right: 10px solid white;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-btns .btn {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">Williams<span>Marín</span></a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item"><a href="#inicio" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
+                    <li class="nav-item"><a href="#experiencia" class="nav-link">Experiencia</a></li>
+                    <li class="nav-item"><a href="#formacion" class="nav-link">Formación</a></li>
+                    <li class="nav-item"><a href="#cursos" class="nav-link">Cursos</a></li>
+                    <li class="nav-item"><a href="#habilidades" class="nav-link">Habilidades</a></li>
+                    <li class="nav-item"><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                    <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Hero / Inicio -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hola, soy <span style="color: var(--accent-color)">Williams Marín</span></h1>
+                <p>Ingeniero Industrial | Especialista en Automatización | Instructor de Robótica y Mecatrónica</p>
+                <div class="hero-btns">
+                    <a href="#proyectos" class="btn">Ver Proyectos</a>
+                    <a href="#contacto" class="btn">Contactar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Mí -->
+    <section class="section" id="sobre-mi">
+        <div class="container">
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://via.placeholder.com/400x500" alt="Williams Marín">
+                </div>
+                <div class="about-text">
+                    <h3>Ingeniero Industrial con formación en física aplicada y automatización</h3>
+                    <p>Soy un Ingeniero Industrial especializado en control de procesos, programación de hardware y diseño técnico. Cuento con experiencia docente universitaria y sólida capacidad para integrar soluciones industriales con herramientas digitales.</p>
+                    <p>Actualmente me desempeño como <strong>Instructor de Automatización y Robótica en el CIEM-FUNMEPRO</strong>, donde guío proyectos de automatización con Arduino y ESP32, capacitando a estudiantes en programación de hardware.</p>
+                    <p>Además, he participado activamente en el <strong>diseño, programación y simulación de diferentes proyectos</strong> para estudiantes de Ingeniería Industrial e Ingeniería Electrónica, contribuyendo a su formación práctica.</p>
+                    <p>Actualmente cursando Maestría en Administración de Negocios y Diplomado en Automatización Industrial.</p>
+                    <a href="#" class="btn" style="margin-top: 20px;">Descargar CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Experiencia -->
+    <section class="section" id="experiencia" style="background-color: var(--light-bg);">
+        <div class="container">
+            <h2 class="section-title">Experiencia Laboral</h2>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024 - Presente</div>
+                        <h3 class="timeline-title">Instructor de Automatización y Robótica</h3>
+                        <p>CIEM-FUNMEPRO</p>
+                        <p>Guié proyectos de automatización con Arduino y ESP32, capacitando a más de 50 estudiantes en programación de hardware. Diseñé y ejecuté prácticas de laboratorio integrando sensores y microcontroladores.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2014 - 2025</div>
+                        <h3 class="timeline-title">Docente Universitario</h3>
+                        <p>Instituto Universitario Politécnico Santiago Mariño (IUPSM)</p>
+                        <p>Diseñé y ejecuté prácticas de laboratorio en física aplicada, integrando sensores y microcontroladores para mejorar la comprensión de fenómenos físicos.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024</div>
+                        <h3 class="timeline-title">Pasantías en Seguridad Industrial</h3>
+                        <p>Instituto Universitario Politécnico Santiago Mariño</p>
+                        <p>Tesis realizada: "Evaluación del sistema de detección de incendios del Instituto Universitario Politécnico 'Santiago Mariño' Extensión Maturín bajo la norma COVENIN 823-3:1995".</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Formación -->
+    <section class="section" id="formacion">
+        <div class="container">
+            <h2 class="section-title">Formación Académica</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3 class="education-title">M.Sc. en Administración de Negocios</h3>
+                    <div class="education-institution">UNA</div>
+                    <div class="education-period">2025 - 2027 (En curso)</div>
+                </div>
+                <div class="education-card">
+                    <h3 class="education-title">Ingeniero Industrial</h3>
+                    <div class="education-institution">UNA</div>
+                    <div class="education-period">2017 - 2024</div>
+                </div>
+                <div class="education-card">
+                    <h3 class="education-title">Profesor de Física</h3>
+                    <div class="education-institution">UPEL-IPHALA</div>
+                    <div class="education-period">2006 - 2012</div>
+                </div>
+                <div class="education-card">
+                    <h3 class="education-title">Bachiller en Ciencias</h3>
+                    <div class="education-institution">U.E. Ricardo Márquez Moreno</div>
+                    <div class="education-period">2001 - 2006</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Cursos y Diplomas -->
+    <section class="section" id="cursos" style="background-color: var(--light-bg);">
+        <div class="container">
+            <h2 class="section-title">Cursos y Diplomas</h2>
+            <div class="courses-container">
+                <div class="course-card">
+                    <h3 class="course-title">Diplomado en Automatización Industrial</h3>
+                    <div class="course-institution">CIEM-FUNMEPRO</div>
+                    <div class="course-year">2025</div>
+                    <p>PLC, sensores, actuadores, sistemas SCADA, control PID, instrumentación industrial.</p>
+                </div>
+                <div class="course-card">
+                    <h3 class="course-title">Curso de Microsoft Project y Power BI</h3>
+                    <div class="course-institution">Online</div>
+                    <div class="course-year">2024</div>
+                    <p>Planificación de tareas, cronogramas, visualización de KPIs, análisis de datos.</p>
+                </div>
+                <div class="course-card">
+                    <h3 class="course-title">Diplomado en Gestión de Calidad</h3>
+                    <div class="course-institution">CIEM-FUNMEPRO</div>
+                    <div class="course-year">2024</div>
+                    <p>Principios de gestión de calidad, normas y estándares, mejora continua.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Habilidades -->
+    <section class="section" id="habilidades">
+        <div class="container">
+            <h2 class="section-title">Mis Habilidades</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programación y Control</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Arduino / ESP32</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>PLC (CODESYS)</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>MATLAB / Python / C++</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Diseño Técnico</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>AutoCAD</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Visio / SketchUp</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>eDraw Max</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Gestión y Ofimática</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Microsoft Office</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Microsoft Project</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Power BI</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section class="section" id="proyectos" style="background-color: var(--light-bg);">
+        <div class="container">
+            <h2 class="section-title">Mis Proyectos</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Portafolio Web Personal</h3>
+                        <p>Diseño y desarrollo de este sitio web portafolio utilizando HTML, CSS y JavaScript para mostrar mis habilidades y experiencia profesional.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Proyectos de Automatización</h3>
+                        <p>Diseño, programación y simulación de diferentes proyectos de automatización para estudiantes de Ingeniería Industrial y Electrónica.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Arduino</span>
+                            <span class="project-tag">ESP32</span>
+                            <span class="project-tag">PLC</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-fire-extinguisher"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Evaluación de Sistemas de Detección de Incendios</h3>
+                        <p>Tesis de evaluación del sistema de detección de incendios según norma COVENIN 823-3:1995 para IUPSM Extensión Maturín.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Seguridad Industrial</span>
+                            <span class="project-tag">Normativa</span>
+                            <span class="project-tag">Evaluación</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section class="section" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Teléfono</h3>
+                            <p>0412-6986885</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>willmarin2446@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Ubicación</h3>
+                            <p>Maturín, Edo. Monagas</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div>
+                            <h3>LinkedIn</h3>
+                            <p>Williams Marín</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Tu Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Tu Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Asunto" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Tu Mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Williams<span>Marín</span></div>
+                    <p>Ingeniero Industrial especializado en automatización, control de procesos y programación de hardware.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#sobre-mi">Sobre Mí</a></li>
+                        <li><a href="#experiencia">Experiencia</a></li>
+                        <li><a href="#formacion">Formación</a></li>
+                        <li><a href="#habilidades">Habilidades</a></li>
+                        <li><a href="#proyectos">Proyectos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Sígueme</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Williams Marín. Todos los derechos reservados.</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">Este sitio web fue creado por Williams Marín como parte de su portafolio profesional.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menú hamburguesa para móviles
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Animación de barras de habilidades al hacer scroll
+        const skillBars = document.querySelectorAll('.skill-progress');
+        
+        function animateSkillBars() {
+            skillBars.forEach(skillBar => {
+                const width = skillBar.style.width;
+                skillBar.style.width = '0';
+                
+                setTimeout(() => {
+                    skillBar.style.width = width;
+                }, 300);
+            });
+        }
+
+        // Observador para animar habilidades cuando son visibles
+        const skillsSection = document.getElementById('habilidades');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkillBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(skillsSection);
+
+        // Formulario de contacto
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Te contactaré pronto.');
+            contactForm.reset();
+        });
+
+        // Cambiar estilo del header al hacer scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.backgroundColor = 'white';
+                header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
